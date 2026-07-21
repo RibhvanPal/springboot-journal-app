@@ -12,6 +12,7 @@ target/
 *.iml
 *.ipr
 out/
+/htmlReport
 
 ### STS ###
 .apt_generated
@@ -21,6 +22,7 @@ out/
 .settings/
 .springBeans
 .sts4-cache
+*.yml
 
 ### NetBeans ###
 /nbproject/private/

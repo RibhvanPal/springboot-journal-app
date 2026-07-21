@@ -3,6 +3,7 @@ package com.ribhvan.journalApp.service;
 import com.ribhvan.journalApp.entity.JournalEntry;
 import com.ribhvan.journalApp.entity.User;
 import com.ribhvan.journalApp.repository.JournalEntryRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 //controller -> service -> repository
 @Component
+@Slf4j
 public class JournalEntryService {
 
     @Autowired
@@ -61,7 +63,7 @@ public class JournalEntryService {
             }
         }
         catch(Exception e) {
-            System.out.println(e);
+            log.error("Error", e);
             throw new RuntimeException("Some error occurred while deleting the entry.", e);
         }
         return removed;
