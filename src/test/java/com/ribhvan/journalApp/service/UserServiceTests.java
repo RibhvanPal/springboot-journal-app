@@ -2,6 +2,7 @@ package com.ribhvan.journalApp.service;
 
 import com.ribhvan.journalApp.entity.User;
 import com.ribhvan.journalApp.repository.UserRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -43,5 +44,11 @@ private UserService userService;
     @ArgumentsSource(UserArgumentsProvider.class)
     public void testSaveNewUser(User user){  //test for saveNewUser
         assertTrue(userService.saveNewUser(user));
+    }
+
+    @AfterEach
+    public void cleanup() {
+        userRepository.deleteByUserName("Name1");
+        userRepository.deleteByUserName("Name2");
     }
 }
